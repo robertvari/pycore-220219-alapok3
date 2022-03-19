@@ -15,8 +15,18 @@ class Card:
         return f"{self._name} {self._value}"
 
 
-card = Card("Spade King", 10)
-print(card.name)
-print(card.value)
-print(card)
+class Deck:
+    def __init__(self):
+        self._cards = []
 
+        self.create()
+
+    def create(self):
+        self._cards.clear()
+
+    def __repr__(self):
+        return f"{self._cards}"
+
+
+deck = Deck()
+print(deck)
