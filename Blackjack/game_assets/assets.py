@@ -52,15 +52,19 @@ class Deck:
 
         random.shuffle(self._cards)
 
+    def draw(self):
+        new_card = self._cards[0]
+        self._cards.remove(new_card)
+        return new_card
+
     def __repr__(self):
         return f"{self._cards}"
 
 
-deck1 = Deck()
-print(deck1)
+deck = Deck()
+print(deck)
 
-deck1.create()
-print(deck1)
-
-deck1.create()
-print(deck1)
+for _ in range(10):
+    my_card = deck.draw()
+    print(my_card)
+    print(deck)
