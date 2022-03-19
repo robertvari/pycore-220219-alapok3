@@ -62,11 +62,18 @@ class Deck:
 
 
 class PlayerBase:
-    def __init__(self, name):
-        self._name = name
+    def __init__(self):
+        self._name = None
         self._hand = []
         self._credits = random.randint(10, 100)
         self._in_game = True
+
+    def create(self):
+        first_names = ["Brittney", "Curtis", "Lucas", "Chip", "Simon"]
+        last_names = ["Moriah", "Tristin", "Troy", "Gale", "Lynn"]
+
+    def __str__(self):
+        return f"Name: {self._name}\nHand:{self._hand}\nCredits: {self._credits}"
 
 
 class Player(PlayerBase):
@@ -75,3 +82,10 @@ class Player(PlayerBase):
 
 class AIPlayer(PlayerBase):
     pass
+
+
+player = Player()
+ai_player = AIPlayer()
+
+print(player)
+print(ai_player)
