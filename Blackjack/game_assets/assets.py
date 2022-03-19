@@ -61,10 +61,3 @@ class Deck:
         return f"{self._cards}"
 
 
-deck = Deck()
-print(deck)
-
-for _ in range(10):
-    my_card = deck.draw()
-    print(my_card)
-    print(deck)
