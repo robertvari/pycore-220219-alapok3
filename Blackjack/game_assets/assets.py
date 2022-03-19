@@ -61,3 +61,17 @@ class Deck:
         return f"{self._cards}"
 
 
+class PlayerBase:
+    def __init__(self, name):
+        self._name = name
+        self._hand = []
+        self._credits = random.randint(10, 100)
+        self._in_game = True
+
+
+class Player(PlayerBase):
+    pass
+
+
+class AIPlayer(PlayerBase):
+    pass
