@@ -56,5 +56,11 @@ class Deck:
         return f"{self._cards}"
 
 
-deck = Deck()
-print(deck)
+deck1 = Deck()
+print(deck1)
+
+deck1.create()
+print(deck1)
+
+deck1.create()
+print(deck1)
