@@ -1,3 +1,6 @@
+import random
+
+
 class Card:
     def __init__(self, name, value):
         self._name = name
@@ -41,6 +44,13 @@ class Deck:
         ]
 
         names = ["Heart", "Club", "Diamond", "Spade"]
+
+        for suit in names:
+            for card in cards:
+                new_card = Card(f"{suit} {card[0]}", card[1])
+                self._cards.append(new_card)
+
+        random.shuffle(self._cards)
 
     def __repr__(self):
         return f"{self._cards}"
