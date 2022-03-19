@@ -68,9 +68,12 @@ class PlayerBase:
         self._credits = random.randint(10, 100)
         self._in_game = True
 
-    def create(self):
+        self._create()
+
+    def _create(self):
         first_names = ["Brittney", "Curtis", "Lucas", "Chip", "Simon"]
         last_names = ["Moriah", "Tristin", "Troy", "Gale", "Lynn"]
+        self._name = f"{random.choice(first_names)} {random.choice(last_names)}"
 
     def __str__(self):
         return f"Name: {self._name}\nHand:{self._hand}\nCredits: {self._credits}"
