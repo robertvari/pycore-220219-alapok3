@@ -80,7 +80,9 @@ class PlayerBase:
 
 
 class Player(PlayerBase):
-    pass
+    # method override
+    def _create(self):
+        self._name = input("What is your name?")
 
 
 class AIPlayer(PlayerBase):
