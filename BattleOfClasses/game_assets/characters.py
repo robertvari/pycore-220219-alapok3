@@ -88,7 +88,19 @@ if __name__ == '__main__':
     enemy.add_item(common_sword)
     enemy.add_item(bread)
 
-
     player = Player()
 
-    pass
+    while True:
+        enemy.attack(player)
+
+        if not player.alive:
+            print(f"{player} is dead :(")
+            enemy.loot(player)
+            break
+
+        player.attack(enemy)
+
+        if not enemy.alive:
+            print(f"{enemy} is dead")
+            player.loot(enemy)
+            break
