@@ -82,7 +82,22 @@ class PlayerBase:
             self._hand.append(deck.draw())
 
     def draw_card(self, deck):
-        pass
+        while self._in_game:
+            # check hand value
+            hand_value = self._count_hand()
+
+            if hand_value <= 16:
+                print(f"{self._name} draws a new card")
+                self._hand.append(deck.draw())
+            else:
+                print(f"{self._name} passes")
+                self._in_game = False
+
+    def _count_hand(self):
+        return sum([card.value for card in self._hand])
+
+    def show_hand(self):
+        print(f"{self._name} hand: {self._hand} Hand value: {self._count_hand()}")
 
     def __str__(self):
         return f"Name: {self._name}\nHand:{self._hand}\nCredits: {self._credits}"
@@ -102,6 +117,14 @@ if __name__ == '__main__':
     deck = Deck()
 
     #player = Player()
-    ai_player = AIPlayer()
-    ai_player.set_start_hand(deck)
-    ai_player.draw_card(deck)
+    ai_player1 = AIPlayer()
+    ai_player1.set_start_hand(deck)
+    ai_player1.draw_card(deck)
+
+    ai_player2 = AIPlayer()
+    ai_player2.set_start_hand(deck)
+    ai_player2.draw_card(deck)
+
+    ai_player1.show_hand()
+    print("-"*50)
+    ai_player2.show_hand()
