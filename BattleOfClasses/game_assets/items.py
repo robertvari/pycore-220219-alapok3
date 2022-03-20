@@ -59,6 +59,9 @@ class Inventory:
     def _get_weight(self):
         return sum([item.weight for item in self._items])
 
+    def __repr__(self):
+        return f"{self._items}"
+
 
 if __name__ == '__main__':
     sword = Weapon("Common Sword", 10, 24)

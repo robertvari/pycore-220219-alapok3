@@ -1,4 +1,4 @@
-from game_assets.items import Inventory
+from game_assets.items import Inventory, Weapon, Food, Cloth
 import random
 
 
@@ -67,8 +67,9 @@ class Enemy(CharacterBase):
 
 
 if __name__ == '__main__':
-    enemy1 = Enemy()
-    enemy2 = Enemy()
-    enemy3 = Enemy()
+    enemy = Enemy()
 
-    pass
+    common_sword = Weapon("Common Sword", 10, 34)
+    bread = Food("Bread", 3, 7)
+    enemy.add_item(common_sword)
+    enemy.add_item(bread)
