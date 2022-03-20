@@ -45,6 +45,16 @@ class CharacterBase:
 
         self._inventory.add_item(item)
 
+    def attack(self, other):
+        pass
+
+    @property
+    def alive(self):
+        return self._current_HP > 0
+
+    def loot(self, other):
+        pass
+
     @staticmethod
     def get_fantasy_name():
         FIRST = ['A', 'Ag', 'Ar', 'Ara', 'Anu', 'Bal', 'Bil', 'Boro', 'Bern', 'Bra', 'Cas', 'Cere', 'Co', 'Con',
