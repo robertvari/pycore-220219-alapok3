@@ -14,7 +14,7 @@ class CharacterBase:
     def __init__(self):
         self._name = None
         self._race = None
-        self._golds = 0
+        self._golds = random.randint(0, 100)
         self._max_weight = 0
         self._inventory = Inventory("Backpack")
 
@@ -26,8 +26,18 @@ class CharacterBase:
         self._right_hand = None
         self._left_hand = None
 
+        self._create()
+
     def _create(self):
-        pass
+        self._name = self.get_fantasy_name()
+        self._race = random.choice(list(races))
+        self._setup_race()
+
+    def _setup_race(self):
+        self._strength = races[self._race]["strength"]
+        self._max_HP = races[self._race]["max_HP"]
+        self._current_HP = self._max_HP
+        self._max_weight = races[self._race]["max_weight"]
 
     @staticmethod
     def get_fantasy_name():
@@ -45,6 +55,8 @@ class CharacterBase:
 
         return f"{random.choice(FIRST)}{random.choice(SECOND)}"
 
+    def __repr__(self):
+        return self._name
 
 class Player(CharacterBase):
     pass
@@ -55,5 +67,8 @@ class Enemy(CharacterBase):
 
 
 if __name__ == '__main__':
-    enemy = Enemy()
-    player = Player()
+    enemy1 = Enemy()
+    enemy2 = Enemy()
+    enemy3 = Enemy()
+
+    pass
