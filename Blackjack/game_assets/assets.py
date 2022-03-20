@@ -120,6 +120,10 @@ class Player(PlayerBase):
             self._hand.append(new_card)
 
             self.show_hand()
+            if self._count_hand() > 21:
+                print("You lost this round :(")
+                break
+
             result = input("Do you want to draw a card? (y/n)")
 
 
