@@ -89,8 +89,9 @@ class AIPlayer(PlayerBase):
     pass
 
 
-player = Player()
-ai_player = AIPlayer()
+if __name__ == '__main__':
+    player = Player()
+    ai_player = AIPlayer()
 
-print(player)
-print(ai_player)
+    print(player)
+    print(ai_player)
