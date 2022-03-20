@@ -116,15 +116,13 @@ class AIPlayer(PlayerBase):
 if __name__ == '__main__':
     deck = Deck()
 
-    #player = Player()
-    ai_player1 = AIPlayer()
-    ai_player1.set_start_hand(deck)
-    ai_player1.draw_card(deck)
+    player = Player()
+    player.set_start_hand(deck)
+    player.draw_card(deck)
 
-    ai_player2 = AIPlayer()
-    ai_player2.set_start_hand(deck)
-    ai_player2.draw_card(deck)
+    ai_player = AIPlayer()
+    ai_player.set_start_hand(deck)
+    ai_player.draw_card(deck)
 
-    ai_player1.show_hand()
-    print("-"*50)
-    ai_player2.show_hand()
+    player.show_hand()
+    ai_player.show_hand()
