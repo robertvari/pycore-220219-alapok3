@@ -108,7 +108,7 @@ class PlayerBase:
         print(f"{self._name} hand: {self._hand} Hand value: {self.count_hand()}")
 
     def __str__(self):
-        return f"Name: {self._name}\nHand:{self._hand}\nCredits: {self._credits}"
+        return self._name
 
 
 class Player(PlayerBase):
