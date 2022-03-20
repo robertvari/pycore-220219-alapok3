@@ -75,6 +75,15 @@ class PlayerBase:
         last_names = ["Moriah", "Tristin", "Troy", "Gale", "Lynn"]
         self._name = f"{random.choice(first_names)} {random.choice(last_names)}"
 
+    def set_start_hand(self, deck):
+        self._hand.clear()
+
+        for _ in range(2):
+            self._hand.append(deck.draw())
+
+    def draw_card(self, deck):
+        pass
+
     def __str__(self):
         return f"Name: {self._name}\nHand:{self._hand}\nCredits: {self._credits}"
 
@@ -90,8 +99,9 @@ class AIPlayer(PlayerBase):
 
 
 if __name__ == '__main__':
-    player = Player()
-    ai_player = AIPlayer()
+    deck = Deck()
 
-    print(player)
-    print(ai_player)
+    #player = Player()
+    ai_player = AIPlayer()
+    ai_player.set_start_hand(deck)
+    ai_player.draw_card(deck)
