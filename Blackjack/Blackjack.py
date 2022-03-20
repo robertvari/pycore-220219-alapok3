@@ -46,5 +46,12 @@ class Blackjack:
         else:
             print("House wins this round.")
 
+        result = input("Do you want to play a new round? (y/n)")
+
+        if result == "y":
+            self._start_game()
+        else:
+            print("Have a nice day :)")
+
 
 Blackjack()
