@@ -43,7 +43,7 @@ class CharacterBase:
         if isinstance(item, Weapon) and not self._right_hand:
             self._right_hand = item
 
-        self._inventory.add_item(item)
+        self.inventory.add_item(item)
 
     def attack(self, other):
         print(f"{self._name} attacks {other}")
@@ -116,6 +116,7 @@ if __name__ == '__main__':
     enemy.add_item(bread)
 
     player = Player()
+    player.add_item(bread)
 
     while True:
         enemy.attack(player)
@@ -131,3 +132,4 @@ if __name__ == '__main__':
             print(f"{enemy} is dead")
             player.loot(enemy)
             break
+
