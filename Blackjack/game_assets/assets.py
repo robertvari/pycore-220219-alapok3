@@ -75,6 +75,10 @@ class PlayerBase:
         last_names = ["Moriah", "Tristin", "Troy", "Gale", "Lynn"]
         self._name = f"{random.choice(first_names)} {random.choice(last_names)}"
 
+    def give_bet(self, bet):
+        self._credits -= bet
+        return bet
+
     def set_start_hand(self, deck):
         self._hand.clear()
 
