@@ -12,6 +12,9 @@ class ItemBase:
     def use(self):
         print(f"Use {self._name}")
 
+    def __repr__(self):
+        return self._name
+
 
 class Weapon(ItemBase):
     def use(self):
@@ -42,12 +45,15 @@ class Inventory:
         print(f"Weight: {0}")
         print(f"Value: {0}")
 
+
 if __name__ == '__main__':
     sword = Weapon("Common Sword", 10, 24)
     bread = Food("Bread", 1, 3)
     hat = Cloth("Blue Hat", 3, 30)
 
-    my_backpack = Inventory()
+    my_backpack = Inventory("Backpack")
     my_backpack.add_item(sword)
     my_backpack.add_item(bread)
     my_backpack.add_item(hat)
+
+    my_backpack.show()
