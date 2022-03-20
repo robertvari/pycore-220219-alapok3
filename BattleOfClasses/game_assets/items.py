@@ -4,6 +4,14 @@ class ItemBase:
         self._weight = weight
         self._price = price
 
+    @property
+    def price(self):
+        return self._price
+
+    @property
+    def weight(self):
+        return self._weight
+
     def report(self):
         print(f"Name: {self._name}")
         print(f"Weight: {self._weight}")
@@ -42,8 +50,14 @@ class Inventory:
 
     def show(self):
         print(f"{self._items}")
-        print(f"Weight: {0}")
-        print(f"Value: {0}")
+        print(f"Weight: {self._get_weight()}")
+        print(f"Value: {self._get_value()}")
+
+    def _get_value(self):
+        return sum([item.price for item in self._items])
+
+    def _get_weight(self):
+        return sum([item.weight for item in self._items])
 
 
 if __name__ == '__main__':
