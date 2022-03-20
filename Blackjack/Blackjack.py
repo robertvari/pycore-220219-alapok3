@@ -29,8 +29,10 @@ class Blackjack:
 
         for player in self._player_list:
             self._bet += player.give_bet(10)
-            # player.set_start_hand(self._deck)
-            # player.draw(self._deck)
+            player.set_start_hand(self._deck)
+            player.draw_card(self._deck)
+
+        print("-"*50)
 
         for player in self._player_list:
             player.show_hand()
