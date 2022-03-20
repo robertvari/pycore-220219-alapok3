@@ -46,7 +46,18 @@ class CharacterBase:
         self._inventory.add_item(item)
 
     def attack(self, other):
-        pass
+        print(f"{self._name} attacks {other}")
+
+        attack_strength = random.randint(0, self._strength)
+
+        if attack_strength == 0:
+            print(f"{self._name} misses {other}")
+        else:
+            print(f"{self._name} hits {other} with {attack_strength} strength")
+            other.apply_damage(attack_strength)
+
+    def apply_damage(self, damage):
+        self._current_HP -= damage
 
     @property
     def alive(self):
