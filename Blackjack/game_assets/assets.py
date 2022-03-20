@@ -108,6 +108,20 @@ class Player(PlayerBase):
     def _create(self):
         self._name = input("What is your name?")
 
+    def draw_card(self, deck):
+        # show start hand
+        self.show_hand()
+
+        # do you want to draw a card?
+        result = input("Do you want to draw a card? (y/n)")
+        while result == "y":
+            new_card = deck.draw()
+            print(f"Your new card is: {new_card}")
+            self._hand.append(new_card)
+
+            self.show_hand()
+            result = input("Do you want to draw a card? (y/n)")
+
 
 class AIPlayer(PlayerBase):
     pass
