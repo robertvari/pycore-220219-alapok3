@@ -13,6 +13,7 @@ class CharacterBase:
         self._name = None
         self._race = None
         self._golds = 0
+        self._max_weight = 0
         self._inventory = Inventory("Backpack")
 
         # combat stats
@@ -25,6 +26,7 @@ class CharacterBase:
 
     def _create(self):
         pass
+
 
 class Player(CharacterBase):
     pass
