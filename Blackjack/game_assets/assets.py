@@ -100,6 +100,10 @@ class PlayerBase:
     def count_hand(self):
         return sum([card.value for card in self._hand])
 
+    def add_credits(self, credits):
+        print(f"{self._name} wins {credits} credits.")
+        self._credits += credits
+
     def show_hand(self):
         print(f"{self._name} hand: {self._hand} Hand value: {self.count_hand()}")
 

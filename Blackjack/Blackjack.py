@@ -35,7 +35,16 @@ class Blackjack:
         self._get_winner()
 
     def _get_winner(self):
-        player_list = [player for player in self._player_list if player.count_hand() <= 21]
+        winner_list = [player for player in self._player_list if player.count_hand() <= 21]
+
+        if winner_list:
+            winner_list = sorted(winner_list, key=lambda p: p.count_hand())
+            winner = winner_list[-1]
+
+            print(f"The winner is: {winner}")
+            winner.add_credits(self._bet)
+        else:
+            print("House wins this round.")
 
 
 Blackjack()
