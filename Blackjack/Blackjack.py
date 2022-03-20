@@ -32,9 +32,10 @@ class Blackjack:
             player.set_start_hand(self._deck)
             player.draw_card(self._deck)
 
-        print("-"*50)
+        self._get_winner()
 
-        for player in self._player_list:
-            player.show_hand()
+    def _get_winner(self):
+        player_list = [player for player in self._player_list if player.count_hand() <= 21]
+
 
 Blackjack()

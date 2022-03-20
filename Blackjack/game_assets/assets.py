@@ -88,7 +88,7 @@ class PlayerBase:
     def draw_card(self, deck):
         while self._in_game:
             # check hand value
-            hand_value = self._count_hand()
+            hand_value = self.count_hand()
 
             if hand_value <= 16:
                 print(f"{self._name} draws a new card")
@@ -97,11 +97,11 @@ class PlayerBase:
                 print(f"{self._name} passes")
                 self._in_game = False
 
-    def _count_hand(self):
+    def count_hand(self):
         return sum([card.value for card in self._hand])
 
     def show_hand(self):
-        print(f"{self._name} hand: {self._hand} Hand value: {self._count_hand()}")
+        print(f"{self._name} hand: {self._hand} Hand value: {self.count_hand()}")
 
     def __str__(self):
         return f"Name: {self._name}\nHand:{self._hand}\nCredits: {self._credits}"
@@ -124,7 +124,7 @@ class Player(PlayerBase):
             self._hand.append(new_card)
 
             self.show_hand()
-            if self._count_hand() > 21:
+            if self.count_hand() > 21:
                 print("You lost this round :(")
                 break
 
