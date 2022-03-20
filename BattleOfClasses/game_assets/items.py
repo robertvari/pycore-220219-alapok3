@@ -48,6 +48,12 @@ class Inventory:
         print(f"{item} added to {self._name}")
         self._items.append(item)
 
+    def get_items(self):
+        return self._items
+
+    def clear(self):
+        self._items = []
+
     def show(self):
         print(f"{self._items}")
         print(f"Weight: {self._get_weight()}")

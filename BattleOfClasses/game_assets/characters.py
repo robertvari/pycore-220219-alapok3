@@ -16,7 +16,7 @@ class CharacterBase:
         self._race = None
         self._golds = random.randint(0, 100)
         self._max_weight = 0
-        self._inventory = Inventory("Backpack")
+        self.inventory = Inventory("Backpack")
 
         # combat stats
         self._strength = 0
@@ -64,7 +64,13 @@ class CharacterBase:
         return self._current_HP > 0
 
     def loot(self, other):
-        pass
+        print(f"{self._name} won the fight.")
+
+        other_items = other.inventory.get_items()
+        for item in other_items:
+            self.inventory.add_item(item)
+
+        other.inventory.clear()
 
     @staticmethod
     def get_fantasy_name():
