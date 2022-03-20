@@ -64,8 +64,16 @@ class CharacterBase:
     def __repr__(self):
         return self._name
 
+
 class Player(CharacterBase):
-    pass
+    def _create(self):
+        self._name = input("What is your name?")
+        result = input(f"What is your race? {list(races)}")
+        while result not in list(races):
+            result = input(f"What is your race? {list(races)}")
+
+        self._race = result
+        self._setup_race()
 
 
 class Enemy(CharacterBase):
@@ -79,3 +87,8 @@ if __name__ == '__main__':
     bread = Food("Bread", 3, 7)
     enemy.add_item(common_sword)
     enemy.add_item(bread)
+
+
+    player = Player()
+
+    pass
