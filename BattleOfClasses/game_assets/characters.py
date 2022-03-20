@@ -39,6 +39,12 @@ class CharacterBase:
         self._current_HP = self._max_HP
         self._max_weight = races[self._race]["max_weight"]
 
+    def add_item(self, item):
+        if isinstance(item, Weapon) and not self._right_hand:
+            self._right_hand = item
+
+        self._inventory.add_item(item)
+
     @staticmethod
     def get_fantasy_name():
         FIRST = ['A', 'Ag', 'Ar', 'Ara', 'Anu', 'Bal', 'Bil', 'Boro', 'Bern', 'Bra', 'Cas', 'Cere', 'Co', 'Con',
